@@ -13,7 +13,7 @@ A disciplina de Estruturas de dados segue uma abordagem de desenvolvimento dirig
 Caso deseje clonar esse repositório execute os seguintes comandos:
 
 ```
-git clone https://github.com/taniro/ED2023.git
+git clone https://github.com/taniro/ED2024.git
 npm install
 npm test
 npm run docs
