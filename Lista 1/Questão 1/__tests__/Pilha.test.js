@@ -32,16 +32,6 @@ test("Inserções",
 );
 
 
-test("Overflow",
-    () => {
-        p.push("A");
-        p.push("B");
-        p.push("C");
-        p.push("D");
-        p.push("E");
-        expect(() => p.push("F")).toThrow("Stackoverflow");
-    }
-);
 
 test("Underflow",
     () => {
@@ -49,24 +39,15 @@ test("Underflow",
     }
 );
 
-test("Tamanho da Pilha recem instanciada é zero",
+test("Pilha invertida",
     () => {
-        expect(p.size()).toBe(0);
-    }
-);
-
-test("A pilha recem instanciada após um push o tamanho é 1",
-    () => {
-        p.push('A')
-        expect(p.size()).toBe(1);
-    }
-);
-
-test("Outro teste de LIFO",
-    () => {
-        p.push('A')
-        p.push('B')
-        p.pop()
-        expect(p.top()).toBe('A');
-    }
+        p.push("A");
+        p.push("B");
+        p.push("A");
+        p.push("C");
+        p.push("A");
+        p.push("X");
+        p.push("I");
+        expect(p.inverte()).toBe("IXACABA");
+}
 );

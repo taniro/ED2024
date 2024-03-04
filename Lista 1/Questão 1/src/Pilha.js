@@ -1,6 +1,6 @@
 class Pilha {
 
-    constructor(tam = 5) {
+    constructor(tam = 8) {
         this.dados = [];
         this.tam = tam;
         this.topo = 0;
