@@ -60,6 +60,7 @@ class Pilha {
         }
         return resultado;
     }
+    
 }
 
 export default Pilha;
