@@ -1,10 +1,10 @@
-import Pilha from "../src/Questao2";
+import PilhaQ02 from "../src/Questao2";
 
 let p;
 
 beforeEach(
     () => {
-        p = new Pilha();
+        p = new PilhaQ02();
     }
 );
 

@@ -1,4 +1,5 @@
-import Pilha from "../src/Questao5";
+import Pilha from "../src/Pilha";
+import analisaSequencia from "../src/Q05-AnalisaSequencia"
 
 let p;
 
@@ -19,7 +20,10 @@ test("Overflow",
         p.push("B");
         p.push("C");
         p.push("D");
-        expect(() => p.push("F")).toThrow("Stackoverflow");
+        p.push("E");
+        p.push("F");
+        p.push("G");
+        expect(() => p.push("H")).toThrow("Stackoverflow");
     }
 );
 
@@ -47,9 +51,9 @@ test("Remoções",
 test("Verificação da sequência",
     () => {
         const texto1 = "[ ( ) [ ( ) ] ] ( )";
-        expect(p.analisaSequencia(texto1)).toBe(true);
-        const texto2 = "( ( ) ]";
-        expect(p.analisaSequencia(texto2)).toBe(false);
+        expect(analisaSequencia(p, texto1)).toBe(true);
+       const texto2 = "( ( ) ]";
+        expect(analisaSequencia(p, texto2)).toBe(false);
 
 });
 

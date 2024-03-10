@@ -1,11 +1,11 @@
-import Pilha from "../src/Questao3";
-import trocaTopoBase from "../src/FuncaoTroca";
+import PilhaQ03 from "../src/Questao3";
+import trocaTopoBase from "../src/Q03-TrocaTopoBase";
 
 let p;
 
 beforeEach (
     () => {
-    p = new Pilha();
+    p = new PilhaQ03();
 });
 
 test("Pilha instanciada é vazia",
@@ -54,6 +54,6 @@ test("Troca de topo por base",
         expect(p.toString()).toBe("1 2 3 4");
         console.log("Pilha antes da troca: ", p.toString());
  
-        expect(trocaTopoBase(p).toString()).toBe("4 2 3 1");
+        expect(trocaTopoBase(p)).toBe("4 2 3 1");
 });
 

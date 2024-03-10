@@ -1,4 +1,5 @@
-import Pilha from "../src/Questao1";
+import Pilha from "../src/Pilha";
+import inverte from "../src/Q01-InvertePilha"
 
 let p;
 
@@ -47,6 +48,6 @@ test("Pilha invertida",
         p.push("A");
         p.push("X");
         p.push("I");
-        expect(p.inverte()).toBe("IXACABA");
+        expect(inverte(p)).toBe("IXACABA");
 }
 );

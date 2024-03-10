@@ -1,4 +1,4 @@
-import Pilha from "../src/Questao3";
+import Pilha from "./Questao3";
 
 export default function trocaTopoBase(pilha) {
  
@@ -8,7 +8,7 @@ export default function trocaTopoBase(pilha) {
     if (pilha.size() <= 1) {
         return pilha;
     } else {
-        pilhaFinal.push(pilha.pop()); // Pegando o topo e tornando base da pilha final
+        pilhaFinal.push(pilha.pop()); // Pegando o topo da pilha original e tornando base da pilha final
         // Movendo todos os elementos menos a base para a pilha auxiliar 
         while (pilha.size() > 1) {
             pilhaAux.push(pilha.pop());
@@ -19,7 +19,7 @@ export default function trocaTopoBase(pilha) {
         }
         pilhaFinal.push(pilha.pop());
  
-        return pilhaFinal; 
+        return pilhaFinal.toString(); 
     }
 }
 

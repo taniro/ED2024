@@ -1,5 +1,4 @@
-class Pilha {
-
+class PilhaQ02 {
     constructor(tam = 4) {
         this.dados = [];
         this.tam = tam;
@@ -67,4 +66,4 @@ class Pilha {
     }
 }
 
-export default Pilha;
+export default PilhaQ02;

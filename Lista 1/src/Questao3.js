@@ -1,4 +1,4 @@
-class Pilha {   
+class PilhaQ03 {   
     constructor(tam = 4){
         this.dados = [];
         this.aux = [];
@@ -26,13 +26,14 @@ class Pilha {
         return this.size() === this.tam;
     }
 
-    push(dado){
-        if (this.isFull()){
-            throw new Error ("Stackoverflow")
+    push(dado) {
+        if (this.isFull()) {
+            throw new Error("Stackoverflow")
         } else {
-            this.dados[this.topo++] = dado;
+            this.dados[this.topo] = dado; // Adiciona o elemento na posição atual do topo
+            this.topo++; // Incrementa o topo
         }
-    }
+    }     
 
     pop(){
         if (this.isEmpty()){
@@ -46,7 +47,7 @@ class Pilha {
 
     toString(){
         let resultado = "";
-        for (let i=0; i<this.size(); i++){
+        for (let i = 0; i < this.size(); i++){
             resultado += this.dados[i]
             if (i !== this.size() - 1) { // Adiciona espaço apenas se não for o último elemento
                 resultado += " "
@@ -55,8 +56,6 @@ class Pilha {
         return resultado;
     }
 
-
 }
 
-
-export default Pilha;
+export default PilhaQ03;
