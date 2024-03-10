@@ -1,4 +1,4 @@
-import Pilha from "./Questao3";
+import Pilha from "./PilhaQ03";
 
 export default function trocaTopoBase(pilha) {
  

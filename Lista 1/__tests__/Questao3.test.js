@@ -1,4 +1,4 @@
-import PilhaQ03 from "../src/Questao3";
+import PilhaQ03 from "../src/PilhaQ03";
 import trocaTopoBase from "../src/Q03-TrocaTopoBase";
 
 let p;
