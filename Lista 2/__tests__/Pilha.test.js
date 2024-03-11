@@ -19,7 +19,6 @@ test("Pilha instanciada é vazia",
 test("Inserções",
     () => {
         p.push("A");
-        console.log(p.toString());
         expect(p.top()).toBe("A");
         p.push("B");
         expect(p.top()).toBe("B");
@@ -40,13 +39,13 @@ test("Overflow",
         p.push("C");
         p.push("D");
         p.push("E");
-        expect(() => p.push("F")).toThrow("Stackoverflow");
+        expect(() => p.push("F")).toThrow("Stack overflow");
     }
 );
 
 test("Underflow",
     () => {
-        expect(() => p.pop()).toThrow("Stackunderflow");
+        expect(() => p.pop()).toThrow("Stack underflow");
     }
 );
 

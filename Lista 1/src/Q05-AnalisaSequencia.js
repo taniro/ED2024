@@ -16,8 +16,6 @@ export default function analisaSequencia(pilha, texto){
                 if (( elemento === ')' && topo === '(' ) || (elemento === ']' && topo === '[')) {
                     pilha.pop();  // Se o fechamento corresponde à abertura
                 }
-                console.log('Pilha:'+ pilha.toString())
-                console.log('Topo:'+ topo)
             }         
         }
     }

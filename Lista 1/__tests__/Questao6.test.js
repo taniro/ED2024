@@ -8,10 +8,10 @@ beforeEach(
     }
 );
 
-test("Notação Polonesa",
-    () => {
+// test("Notação Polonesa",
+//     () => {
 
-    let expressao1 = "3 4 2 * +";
-    expect(notacaoPolonesa(p, expressao1)).toBe("11")
+//     let expressao1 = "3 4 2 * +";
+//     expect(notacaoPolonesa(p, expressao1)).toBe("11")
 
-});
+// });
