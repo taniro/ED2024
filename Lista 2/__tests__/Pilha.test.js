@@ -1,7 +1,7 @@
 import Pilha from "../src/Pilha";
-import inverte from "../src/Q01-InvertePilha"
 
 let p;
+
 beforeEach(
     () => {
         p = new Pilha();
@@ -15,10 +15,11 @@ test("Pilha instanciada é vazia",
     }
 );
 
+
 test("Inserções",
     () => {
         p.push("A");
-        // console.log(p.toString());
+        console.log(p.toString());
         expect(p.top()).toBe("A");
         p.push("B");
         expect(p.top()).toBe("B");
@@ -32,21 +33,41 @@ test("Inserções",
 );
 
 
+test("Overflow",
+    () => {
+        p.push("A");
+        p.push("B");
+        p.push("C");
+        p.push("D");
+        p.push("E");
+        expect(() => p.push("F")).toThrow("Stackoverflow");
+    }
+);
+
 test("Underflow",
     () => {
         expect(() => p.pop()).toThrow("Stackunderflow");
     }
 );
 
-test("Pilha invertida",
+test("Tamanho da Pilha recem instanciada é zero",
     () => {
-        p.push("A");
-        p.push("B");
-        p.push("A");
-        p.push("C");
-        p.push("A");
-        p.push("X");
-        p.push("I");
-        expect(inverte(p)).toBe("IXACABA");
-}
+        expect(p.size()).toBe(0);
+    }
+);
+
+test("A pilha recem instanciada após um push o tamanho é 1",
+    () => {
+        p.push('A')
+        expect(p.size()).toBe(1);
+    }
+);
+
+test("Outro teste de LIFO",
+    () => {
+        p.push('A')
+        p.push('B')
+        p.pop()
+        expect(p.top()).toBe('A');
+    }
 );
