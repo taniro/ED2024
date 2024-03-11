@@ -34,7 +34,7 @@ class Pilha {
     }
     toString() {
         let resultado = "";
-        for (let i = 0; i <= this.topo; i++) {
+        for (let i = 0; i < this.topo; i++) {
             resultado += this.dados[i];
         }
         return resultado;

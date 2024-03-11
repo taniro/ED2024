@@ -31,7 +31,6 @@ test("Inserções",
     }
 );
 
-
 test("Overflow",
     () => {
         p.push("A");
