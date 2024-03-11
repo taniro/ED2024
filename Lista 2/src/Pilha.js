@@ -1,10 +1,10 @@
 class Pilha {
-
     constructor(maxsize) {
         this.dados = [];
         this.tam = maxsize;
         this.topo = 0;
     }
+
     push(dado) {
         if (!this.isFull()) {
             this.dados[this.topo++] = dado;
@@ -17,7 +17,7 @@ class Pilha {
             throw new Error("Stack underflow");
         } else {
             this.topo--;
-            return this.dados[this.topo];       
+            return this.dados[this.topo--];       
         }
     }
     

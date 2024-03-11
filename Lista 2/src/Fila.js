@@ -1,6 +1,5 @@
 class Fila {
-
-    constructor(capacidade = 10) {
+    constructor(capacidade) {
         this.capacidade = capacidade;
         this.dados = [];
         this.inicio = 0;
@@ -17,8 +16,7 @@ class Fila {
     }
     dequeue(){
         if (!this.isEmpty()){
-            this.inicio++;
-            return;
+            return this.dados[this.inicio++];
         }
         throw new Error("Queue underflow");
     }
@@ -46,10 +44,14 @@ class Fila {
     }
 
     toString() {
-        let resultado = "";
+        resultado = "[";
         for (let i = this.inicio; i < this.fim; i++) {
-            resultado += this.dados[i] + " ";
+            resultado += `${this.dados[i]}`
+            if (i!==0){
+                resultado += " ";
+            }
         }
+        resultado += "]";
 
         return resultado;
 
