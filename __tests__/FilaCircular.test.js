@@ -4,7 +4,7 @@ let fc;
 
 beforeEach(
     () => {
-        fc = new FilaCircularVitor(5);
+        fc = new FilaCircular(5);
     }
 );
 
