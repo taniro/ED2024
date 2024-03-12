@@ -1,11 +1,10 @@
 import FilaCircular from "../src/FilaCircular";
 
-
 let fc;
 
 beforeEach(
     () => {
-        fc = new FilaCircular(5);
+        fc = new FilaCircularVitor(5);
     }
 );
 
@@ -34,6 +33,7 @@ test("Overflow",
         fc.enqueue("A");
         fc.enqueue("B");
         fc.enqueue("C");
+        fc.enqueue("D");
         fc.enqueue("D");
         expect(() => fc.enqueue("E")).toThrow("Queueoverflow");
     }
@@ -95,5 +95,35 @@ test("Teste de vazio",
         expect(fc.isEmpty()).toBe(true);
         fc.enqueue("F");
         expect(fc.isEmpty()).toBe(false);
+    }
+);
+
+test("Procurando erros ",
+    () => {
+        fc.enqueue("A");
+        fc.enqueue("B");
+        fc.enqueue("C");
+        fc.enqueue("D");
+        fc.dequeue();
+        fc.dequeue();
+        fc.enqueue("E");
+        fc.enqueue("F");
+        fc.dequeue();
+        fc.dequeue();
+        fc.enqueue("A");
+        fc.enqueue("B");
+        console.log(fc.toString());
+    }
+);
+
+
+test("Procurando erros ",
+    () => {
+        fc.enqueue("A");
+        fc.enqueue("B");
+        fc.enqueue("C");
+        fc.enqueue("D");
+        fc.enqueue("E");
+        console.log(fc.toString());
     }
 );
