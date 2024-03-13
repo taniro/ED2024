@@ -5,7 +5,14 @@ class Fila {
         this.inicio = 0;
         this.fim = 0;
     }
- 
+
+    isEmpty(){
+        return this.inicio === this.fim;
+    }
+    isFull(){
+        return this.size() === this.capacidade;
+    }
+
     enqueue(dado){
         if(!this.isFull()){
             this.dados[this.fim] = dado;
@@ -27,13 +34,6 @@ class Fila {
         }
     }
 
-    isEmpty(){
-        return this.inicio === this.fim;
-    }
-    isFull(){
-        return this.size() === this.capacidade;
-    }
-
     size(){
         return this.fim - this.inicio;
     }
@@ -44,14 +44,14 @@ class Fila {
     }
 
     toString() {
-        resultado = "[";
+        let resultado = "[";
         for (let i = this.inicio; i < this.fim; i++) {
-            resultado += `${this.dados[i]}`
-            if (i!==0){
-                resultado += " ";
+            if(i<this.fim - 1){
+                resultado += this.dados[i] + " ";
+            } else {
+                resultado += this.dados[i] + "]";
             }
         }
-        resultado += "]";
 
         return resultado;
 

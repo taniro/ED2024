@@ -41,9 +41,9 @@ class Pilha {
                 resultado += this.dados[i] + "]";
             }
         }
-
         return resultado;
     }
+    
     isEmpty() {
         return this.size() === 0;
     }
