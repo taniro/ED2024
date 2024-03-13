@@ -66,7 +66,7 @@ class FilaCircular {
      * Verifica se a fila está cheia
      */
     isFull() {
-        return this.length() === this.capacidade-1;
+        return (this.length() === this.capacidade) || ( this.fim+1 == this.inicio);
     }
     /**
      * Limpa a fila
@@ -80,22 +80,22 @@ class FilaCircular {
      * @return {string} Os elementos da fila.
      */
     toString() { 
-        let texto = "";
+        let resposta = "";
         if(this.inicio < this.fim){
-            for(let i = this.inicio; i < this.fim; i ++){
-                texto += this.dados[i] + " ";
+            for(let i = this.inicio; i < this.fim; i++){
+                resposta+=this.dados[i];
             }
         }else{
-            for(let i = this.inicio; i <= this.length();i++){
-                texto += this.dados[i] + " ";
+            for(let i = this.inicio; i < this.capacidade; i++){
+                resposta+=this.dados[i];
             }
-            
-            for(let i = 0; i < this.fim;i++){
-                texto += this.dados[i] + " ";
+            if(this.fim!=0){
+                for(let i = 0; i < this.fim; i++){
+                    resposta+=this.dados[i];
+                }
             }
         }
-
-        return texto;
+        return resposta;
     }
     
     /**
