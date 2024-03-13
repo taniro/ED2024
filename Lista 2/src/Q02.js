@@ -2,7 +2,7 @@
     Implemente uma fila usando a implementação duas pilhas básicas.
 */
 
-import Pilha from "./Pilha";
+import Pilha from "../structures/Pilha";
 
 class Fila {
     constructor(maxsize){

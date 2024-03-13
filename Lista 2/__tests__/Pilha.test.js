@@ -1,4 +1,4 @@
-import Pilha from "../src/Pilha";
+import Pilha from "../structures/Pilha";
 
 let p;
 

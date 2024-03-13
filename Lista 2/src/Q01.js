@@ -1,7 +1,7 @@
 /*
     Implemente uma pilha usando a implementação de duas filas básicas.
 */
-import Fila from "./Fila";
+import Fila from "../structures/Fila";
 
 class Pilha2F {
     constructor(capacidade = 5){
