@@ -15,7 +15,6 @@ test("Pilha instanciada é vazia",
     }
 );
 
-
 test("Inserções",
     () => {
         p.push("A");

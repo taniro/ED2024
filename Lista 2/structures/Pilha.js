@@ -33,10 +33,15 @@ class Pilha {
         return this.topo;
     }
     toString() {
-        let resultado = "";
+        let resultado = "[";
         for (let i = 0; i < this.topo; i++) {
-            resultado += this.dados[i];
+            if(i<this.topo - 1){
+                resultado += this.dados[i] + " ";
+            } else {
+                resultado += this.dados[i] + "]";
+            }
         }
+
         return resultado;
     }
     isEmpty() {

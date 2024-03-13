@@ -23,30 +23,40 @@ class Pilha2F {
     }
 
     push(dado){
-        if(this.isFull()){
+        if(this.F1.isFull()){
             throw new Error("Stackoverflow");
         } else {
-            while(this.F1.size() > 0){
-                this.F2.enqueue( this.F1.dequeue() )
-            }
             this.F1.enqueue(dado);
-
-            while(this.F2.size() > 0){
-                this.F1.enqueue( this.F2.dequeue() )
-            }
-        
+            return;
         }
     }
-    pop(){
-        if(this.isEmpty()){
+    pop() {
+        if (this.isEmpty()) {
             throw new Error("Stackunderflow");
         } else {
-            return this.F1.dequeue();
+            while (this.F1.size() > 1) {
+                this.F2.enqueue(this.F1.dequeue());
+            }
+            let top = this.F1.dequeue(); // Armazena o topo antes de limpar F1
+            while (!this.F2.isEmpty()) { // Restaura a ordem dos elementos
+                this.F1.enqueue(this.F2.dequeue());
+            }
+            return top; // Retorna o topo armazenado
         }
     }
-
-    top(){
-        return this.F1.front();
+    
+    top() {
+        if (!this.isEmpty()) {
+            while (this.F1.size() > 1) {
+                this.F2.enqueue(this.F1.dequeue());
+            }
+            let top = this.F1.dequeue(); // Armazena o topo antes de limpar F1
+            while (!this.F2.isEmpty()) { // Restaura a ordem dos elementos
+                this.F1.enqueue(this.F2.dequeue());
+            }
+            return top; // Retorna o topo armazenado
+        }
+        throw new Error("Stackunderflow");
     }
 
     toString(){

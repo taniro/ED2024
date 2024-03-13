@@ -72,10 +72,13 @@ test("Underflow",
     }
 );
 
-test("Outro teste de FIFO",
+test("Teste de FIFO com pilhas",
     () => {
         f.enqueue('A')
         f.enqueue('B')
+        expect(f.front()).toBe('A');
+
+        f.enqueue('C')
         f.dequeue()
         expect(f.front()).toBe('B');
     }

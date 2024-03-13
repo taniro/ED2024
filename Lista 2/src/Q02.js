@@ -20,31 +20,45 @@ class Fila {
         return this.p1.clear();
     }
 
-    //Insere os elementos de forma que, ao retira-los, se comportem como numa pilha
     enqueue(element){
-        if(this.isFull()){
-            throw new Error("Queue overflow");
-        } else {
-            while(this.p1.size()>0){
-                this.p2.push( this.p1.pop() );
-            }
+        if(!this.p1.isFull()){
             this.p1.push(element);
-            while(this.p2.size()>0){
-                this.p1.push( this.p2.pop() );
-            }
-        }
+            return;
+        } 
+        throw new Error("Queue overflow");
     }
 
     dequeue(){
-        if(this.isEmpty()){
+        if (this.p1.isEmpty()) {
             throw new Error("Queue underflow");
         } else {
-            return this.p1.pop();
+            while (this.p1.size() > 1){
+                this.p2.push(this.p1.pop());
+            }
+            let front = this.p1.pop();
+            this.p1.clear();
+
+            while (this.p2.size() > 0) {
+                this.p1.push(this.p2.pop());
+            }
+            return front;
         }
     }
 
-    front(){
-        return this.p1.top();
+    front() {
+        if (!this.isEmpty()) {
+            if (this.p2.isEmpty()) {
+                while (this.p1.size() > 0) {
+                    this.p2.push(this.p1.pop());
+                }
+            }
+            let front = this.p2.top(); // Retorna o elemento do topo da pilha p2
+            while (this.p2.size() > 0) {
+                this.p1.push(this.p2.pop());
+            }
+            return front;
+        }
+        throw new Error("Queue underflow");
     }
 
     lenght(){
@@ -52,18 +66,8 @@ class Fila {
     }
 
     toString(){
-        let resultado = "[";
-        for(let i = this.p1.topo - 1; i >= 0; i--){
-            resultado += `${this.p1.dados[i]}`
-            if (i!==0){
-                resultado += " ";
-            }
-        }
-        resultado += "]";
-
-        return resultado;
+        return this.p1.toString();
     }
-
 }
 
 export default Fila;

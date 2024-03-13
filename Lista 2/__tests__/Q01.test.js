@@ -54,18 +54,17 @@ test("Tamanho da Pilha recem instanciada é zero",
     }
 );
 
-test("A pilha recem instanciada após um push o tamanho é 1",
+test("A pilha recém instanciada após um push o tamanho é 1",
     () => {
         p.push('A')
         expect(p.size()).toBe(1);
     }
 );
 
-test("Outro teste de LIFO",
+test("Teste de LIFO usando filas",
     () => {
         p.push('A')
         p.push('B')
-        p.pop()
-        expect(p.top()).toBe('A');
+        expect(p.pop()).toBe('B');
     }
 );
