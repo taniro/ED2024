@@ -1,48 +1,95 @@
-class Pilha {
+class Pilha{
 
-    constructor(tam = 5) {
+    /** 
+      * creat a stack
+      * @constructor
+      * @param {tam} tam - O tamanho da lista
+    */
+    constructor(tam = 5){
         this.dados = [];
-        this.tam = tam;
         this.topo = 0;
+        this.tam = tam;
     }
-    push(dado) {
-        if (!this.isFull()) {
+
+    /**
+     * Create the method push
+     * @push
+     * @param {dado} dado - Dado a ser inserido na pilha
+     */
+
+    push(dado){
+        if(!this.isFull()){
             this.dados[this.topo++] = dado;
             return;
         }
         throw new Error("Stackoverflow");
     }
-    pop() {
-        if (this.isEmpty()) {
-            throw new Error("Stackunderflow");
-        } else {
+
+
+    /**
+     * Create the method pop
+     * @pop
+     */
+    pop(){
+        if(!this.isEmpty()){
             this.topo--;
+            return;
         }
+        throw new Error("Stackunderflow");
     }
-    top() {
-        if (!this.isEmpty()) {
-            return this.dados[this.topo - 1];
-        }
-        throw new Error("Empty stack");
+
+    /**
+     * Create the topo
+     * @topo
+     */
+
+    top(){
+        return this.dados[this.topo-1];
     }
-    clear() {
+
+    /**
+     * Create the method clear 
+     * @clear
+     */
+    clear(){
         this.topo = 0;
     }
-    size() {
-        return this.topo;
+
+    /**
+     * Crate the method size
+     * @size
+     */
+    size(){
+       return this.topo;
     }
-    toString() {
-        let resultado = "";
-        for (let i = 0; i <= this.topo; i++) {
-            resultado += this.dados[i];
-        }
-        return resultado;
-    }
-    isEmpty() {
+
+    /**
+     * Create the method isEmpty
+     * @isEmpty
+     */
+    isEmpty(){
         return this.size() === 0;
     }
-    isFull() {
+
+    /**
+     * Create the method isFull
+     * @isFull
+     */
+
+    isFull(){
         return this.size() === this.tam;
+    }
+
+    /**
+     * Create the toString
+     * @toString
+     */
+    toString(){
+        let  texto = "";
+        for(let i = 0; i <= this.topo; i++){
+            texto+=texto;
+        }
+        return texto;
     }
 }
 
