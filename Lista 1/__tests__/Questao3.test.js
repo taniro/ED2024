@@ -24,6 +24,11 @@ test("Overflow",
     }
 );
 
+test("Underflow",
+    () => {
+        expect(() => p.pop()).toThrow("Stackunderflow");
+    }
+);
 
 test("Inserções",
     () => {

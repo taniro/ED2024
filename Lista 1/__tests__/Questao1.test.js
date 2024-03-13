@@ -18,7 +18,6 @@ test("Pilha instanciada é vazia",
 test("Inserções",
     () => {
         p.push("A");
-        // console.log(p.toString());
         expect(p.top()).toBe("A");
         p.push("B");
         expect(p.top()).toBe("B");
