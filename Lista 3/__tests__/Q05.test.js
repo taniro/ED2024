@@ -1,5 +1,5 @@
 import Lista from "../structures/Lista";
-import substring from "../src/Q06-substring";
+import embaralhaOrdem from "../src/Q05-embaralhaOrdem";
 
 let l;
 
@@ -34,15 +34,12 @@ test("Remover elementos da lista vazia",
     }
 );
 
-test("Substring", 
+test("Embaralha ordem", 
     () => {
         l.add("A");
         l.add("B");
         l.add("C");
         l.add("D");
-        l.add("E");
-        l.add("F");   
-        expect(substring(2,4,l)).toBe("B C D ");
-    
+        expect(embaralhaOrdem(l)).not.toEqual('ABCD');
     }
 );
