@@ -29,7 +29,6 @@ test("Inserções",
     }
 );
 
-
 test("Underflow",
     () => {
         expect(() => p.pop()).toThrow("Stack underflow");

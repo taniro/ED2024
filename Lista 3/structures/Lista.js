@@ -24,7 +24,6 @@ class Lista {
             }
             atual.proximo = novo_no;
         }
-        
         this.size++;
         }
 
@@ -32,8 +31,7 @@ class Lista {
         if (posicao <= this.length() && posicao >= 0) {
             let novo_no = new No(dado);
             if (posicao === 0) {
-                novo_no.proximo = this.head;
-                this.head = novo_no;
+                this.add();
             } else {
                 let atual = this.head;
                 for (let i = 0; i < posicao - 1; i++) {
@@ -41,10 +39,11 @@ class Lista {
                 }
                 novo_no.proximo = atual.proximo;
                 atual.proximo = novo_no;
+                this.size++;
             }
         } else {
             throw new Error("Posição inválida");
-        }
+        }
     }
              
     append(dado) {
@@ -61,12 +60,11 @@ class Lista {
 
     removeFirst() {
         if (!this.isEmpty()) {
-            let aux = this.head.proximo;
-            this.head.proximo = aux.proximo;
+            this.head = this.head.proximo;
             this.size--;
             return;
         }
-        throw new Error("Stack underflow");
+        throw new Error("Underflow");
     }
 
     removeLast() {
@@ -81,7 +79,7 @@ class Lista {
             this.size--;
             return;
         }
-        throw new Error("Stack underflow");
+        throw new Error("Underflow");
     }
 
     
@@ -102,7 +100,23 @@ class Lista {
         }
         return -1; //dado não encontrado
     }
+
+    searchForPos(pos) {
+        let i = 0;
+        let aux = this.head;
     
+        while (aux !== null) {
+            if (i === pos) {
+                return aux;
+            }
+            aux = aux.proximo;
+            i++;
+        }
+    
+        return null; // Se a posição não for encontrada, retorna null
+    }
+    
+
     asArray() {
         let resultado = [];
         let aux = this.head.proximo;
@@ -123,6 +137,18 @@ class Lista {
         }
         this.head.proximo = null;
         this.size = 0;
+    }
+
+    toString(){
+        let string = "";
+        let nodeAux = this.head.proximo;
+
+        while(nodeAux != null){
+            string += nodeAux.dado + " ";
+            nodeAux = nodeAux.proximo;
+        }
+
+        return string;
     }
 }
 

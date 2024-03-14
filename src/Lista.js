@@ -55,6 +55,7 @@ class Lista {
         }
         throw new Error("Underflow");
     }
+<<<<<<< HEAD
 
     addAt(pos) {
 
@@ -76,6 +77,93 @@ class Lista {
         }
         return -1; //dado não encontrado
     }
+=======
+    
+    addAt(dado, pos){ //Lista começa na posição 1(Ignora a head)
+        if(pos <= this.length() && pos>= 1){
+            let novoNo = new No(dado);
+            let cont = 0;
+            let aux = this.head;
+            let anterior, posterior;
+            while(cont != pos){
+                posterior = aux.proximo;
+                anterior = aux;
+                aux = aux.proximo;      
+                cont++; 
+            }
+            novoNo.proximo = posterior;
+            anterior.proximo = novoNo;
+            this.size++;
+        }else{
+            throw new Error("NullPointerException");
+        }
+    }
+
+
+    removeAt(pos){
+        if(!this.isEmpty()){
+            if(pos <= this.length() && pos>= 1){
+                let cont = 0;
+                let aux = this.head;
+                let anterior, posterior;
+                while(cont != pos){
+                    posterior = aux.proximo;
+                    anterior = aux;
+                    aux = aux.proximo;      
+                    cont++; 
+                }
+                anterior.proximo = posterior.proximo;
+                this.size--;
+            }else{
+                throw new Error("NullPointerException");
+            }
+        }else{
+            throw new Error("Underflow");
+        }
+    }
+
+    length() {
+        return this.size;
+    }
+    isEmpty() {
+        return this.head.proximo === null;
+    }
+
+    search(dado){
+        if(!this.isEmpty()){
+            let aux = this.head;
+            while(aux.proximo!=null){
+                if(dado === aux.dado){
+                    return true;
+                }
+                aux = aux.proximo;
+            }
+        }else{
+            throw new Error("ListEmpty");
+        }
+        return false;
+    }
+
+    searchIndex(pos){
+        if(!this.isEmpty()){
+            if(pos >= 1 && pos <= this.length()){
+                let aux = this.head.proximo;
+                let cont = 0;
+                let dado;
+                while(cont !== pos){
+                    dado = aux.dado;
+                    aux = aux.proximo;
+                    cont++;
+                }
+                return dado;
+            }else{
+                throw new Error("NullPointerException");
+            }
+        }else{
+            throw new Error("ListEmpty");
+        }
+    }
+>>>>>>> upstream/main
     
     asArray() {
         let resultado = [];

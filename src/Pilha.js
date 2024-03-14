@@ -1,9 +1,16 @@
+/**
+ * Classe representando uma pilha.
+ * Uma pilha é um conjunto ordenado de dados no qual os dados 
+ * podem ser inseridos ou removidos a partir de uma extremidade chamada topo da pilha.
+ * É possível dizer que uma pilha é um tipo abstrato de dados baseado no princípio de Last-In, First-Out
+ * LIFO ou  “o último a entrar é o primeiro a sair”. 
+ */
 class Pilha{
 
     /** 
-      * creat a pilha
+      * Cria uma pilha vazia.
       * @constructor
-      * @param {tam} tam - O tamanho da lista
+      * @param {tam} [tam=5] - O tamanho da lista. Caso não seja informado a fila terá tamanho 5. 
     */
     constructor(tam = 5){
         this.dados = [];
@@ -12,18 +19,10 @@ class Pilha{
     }
 
     /**
-     * Create the method push
-     * @push
-     * @param {dado} dado - Dado a ser inserido na pilha
-     * @throws {Error} - Se a pilha estiver cheia
+     * Método para inserir um dado no topo da pilha.
+     * @param {dado} dado - Dado a ser inserido.
+     * @throws {Error} - Se a pilha estiver cheia.
      * @return {void}
-     * @example
-     * pilha.push(10); -> add elemnt in the stack
-     * pilha.push(20);
-     * pilha.push(30);
-     * pilha.push(40);
-     * pilha.push(50);
-     * pilha.push(60); // Error: Stackoverflow moment that the stack is full, because the size is 5
      */
 
     push(dado){
@@ -36,9 +35,9 @@ class Pilha{
 
 
     /**
-     * Create the method pop
-     * @pop
-     * the method pop remove the last element of the stack
+     * Método para remover um dado no topo da pilha.
+     * @throws {Error} - Se a pilha estiver vazia.
+     * @return {void}
      */
     pop(){
         if(!this.isEmpty()){
@@ -49,56 +48,47 @@ class Pilha{
     }
 
     /**
-     * Create the topo
-     * @topo
-     * the method topo return the last element of the stack
+     * Método para obter o dado que está no topo da pilha.
+     * @return {dado}
      */
-
     top(){
         return this.dados[this.topo-1];
     }
 
     /**
-     * Create the method clear 
-     * @clear
-     * the method clear remove all elements of the stack
+     * Método para remover todos dados da pilha.
      */
     clear(){
         this.topo = 0;
     }
 
     /**
-     * Crate the method size
-     * @size
-     * the method size return the size of the stack
+     * Método para obter a quantidade de elementos na pilha.
+     * @return {number}
      */
     size(){
        return this.topo;
     }
 
     /**
-     * Create the method isEmpty
-     * @isEmpty
-     * the method isEmpty return true if the stack is empty
+     * Método para verificar se uma pilha está vazia.
+     * @return {boolean}
      */
     isEmpty(){
         return this.size() === 0;
     }
 
     /**
-     * Create the method isFull
-     * @isFull
-     * the method isFull return true if the stack is full
+     * Método para verificar se uma pilha está cheia.
+     * @return {boolean}
      */
-
     isFull(){
         return this.size() === this.tam;
     }
 
     /**
-     * Create the toString
-     * @toString
-     * the method toString return the elements of the stack in string format
+     * Método para retornar todos os dados de uma pilha em formato String.
+     * @return {string}
      */
     toString(){
         let  texto = "";
@@ -106,6 +96,18 @@ class Pilha{
             texto+=texto;
         }
         return texto;
+    }
+
+    /**
+     * Método para retornar todos os dados de uma pilha como um array.
+     * @return {object}
+     */
+    asArray(){
+        let  resultado = [];
+        for(let i = 0; i <= this.topo; i++){
+            resultado.push(this.dados[i]);
+        }
+        return resultado;
     }
 }
 
