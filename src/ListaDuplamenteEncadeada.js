@@ -1,14 +1,14 @@
 import NoDuplo from "./NoDuplo";
 
 /**
- * Representa uma lista duplamente encadeada.
- * Cada nó da lista possui referências para o próximo e o anterior.
+ * Classe representando uma Lista Duplamente Encadeada
+ * São listas que possuem tanto um apontador para o sucessor e para o antecessor
+ * Será possível caminhar para a direita ou para a esquerda com igual facilidade.
  */
-
 class ListaDuplamenteEncadeada {
-
     /**
-     * Constrói uma nova ListaDuplamenteEncadeada vazia.
+     * Cria uma lista duplamente encadeada vazia
+     * @constructor
      */
     constructor() {
         this.head = null; // Referência para o primeiro nó da lista
@@ -16,8 +16,8 @@ class ListaDuplamenteEncadeada {
     }
 
     /**
-     * Adiciona um novo elemento no início da lista.
-     * O dado a ser armazenado no novo nó.
+     * Adiciona um novo elemento no INICIO da lista
+     * @param {any} dado - Dado a ser inserido
      */
     add(dado) {
         let novo_no = new NoDuplo(dado);
@@ -37,8 +37,8 @@ class ListaDuplamenteEncadeada {
     }
 
     /**
-     * Adiciona um novo elemento no final da lista.
-     * O dado a ser armazenado no novo nó.
+     * Adiciona um novo elemento no FINAL da lista
+     * @param {any} dado - Dado a ser adicionado
      */
     append(dado) {
         let novo_no = new NoDuplo(dado);
@@ -59,8 +59,8 @@ class ListaDuplamenteEncadeada {
     }
 
     /**
-     * Converte a lista em um array.
-     * Um array contendo os elementos da lista.
+     * Retorna a lista como um array
+     * @return {Array} - Retorna array com os elementos da lista
      */
     asArray() {
         let aux = this.head;
@@ -73,16 +73,16 @@ class ListaDuplamenteEncadeada {
     }
 
     /**
-     * Verifica se a lista está vazia.
-     * True se a lista estiver vazia, False caso contrário.
+     * Verifica se a lista esta vazia
+     * @return {boolean} - True se a lista estiver vazia
      */
     isEmpty() {
         return this.head === null;
     }
 
     /**
-     * Retorna o número de elementos na lista.
-     * O número de elementos na lista.
+     * Retorna a quantidade de elementos na lista
+     * @return {number} - quantidade de elementos na lista
      */
     length() {
         let aux = this.head;
@@ -95,7 +95,7 @@ class ListaDuplamenteEncadeada {
     }
 
     /**
-     * Remove todos os elementos da lista, tornando-a vazia.
+     * Método para remover todos dados da Lista
      */
     clear() {
         this.head = null;
@@ -103,8 +103,7 @@ class ListaDuplamenteEncadeada {
     }
 
     /**
-     * Remove o primeiro elemento da lista.
-     * Se a lista estiver vazia.
+     * Metodo para remover o primeiro elemento da lista.
      */
     remove() {
         if (!this.isEmpty()) {
@@ -125,8 +124,7 @@ class ListaDuplamenteEncadeada {
     }
 
     /**
-     * Remove o último elemento da lista.
-     * Se a lista estiver vazia.
+     * Metodo para remover o ultimo elemento da lista.
      */
     removeLast() {
         if (!this.isEmpty()) {
@@ -146,10 +144,28 @@ class ListaDuplamenteEncadeada {
         throw new Error("Underflow");
     }
 
-    // Os métodos addAt, removeAt e search podem ser implementados aqui.
-    addAt(dado, pos) { } //Vazio
-    removeAt(pos) { } //Vazio
-    search(dado) { } //Vazio
+    /**
+     * Metodo para adicionar um elemento na posiçao passada por parametro
+     */
+    addAt(dado, pos) {
+        //sem implementação
+
+     }
+
+    /**
+     * Metodo para remover um elemento na posiçao passada por parametro
+     */
+    removeAt(pos) { 
+        //sem implementação
+
+    }
+
+    /**
+     * Metodo para buscar um dado na lista e retornar true se encontrar ou false se não encontrar
+     */
+    search(dado) {
+        //sem implementação
+     }
 }
 
 export default ListaDuplamenteEncadeada;
