@@ -24,23 +24,21 @@ class Pilha{
      * @throws {Error} - Se a pilha estiver cheia.
      * @return {void}
      */
-
-    push(dado){
-        if(!this.isFull()){
+    push(dado) {
+        if (!this.isFull()) {
             this.dados[this.topo++] = dado;
             return;
         }
         throw new Error("Stackoverflow");
     }
 
-
     /**
      * Método para remover um dado no topo da pilha.
      * @throws {Error} - Se a pilha estiver vazia.
      * @return {void}
      */
-    pop(){
-        if(!this.isEmpty()){
+    pop() {
+        if (!this.isEmpty()) {
             this.topo--;
             return;
         }
@@ -58,7 +56,7 @@ class Pilha{
     /**
      * Método para remover todos dados da pilha.
      */
-    clear(){
+    clear() {
         this.topo = 0;
     }
 
@@ -66,15 +64,15 @@ class Pilha{
      * Método para obter a quantidade de elementos na pilha.
      * @return {number}
      */
-    size(){
-       return this.topo;
+    size() {
+        return this.topo;
     }
 
     /**
      * Método para verificar se uma pilha está vazia.
      * @return {boolean}
      */
-    isEmpty(){
+    isEmpty() {
         return this.size() === 0;
     }
 
@@ -90,12 +88,12 @@ class Pilha{
      * Método para retornar todos os dados de uma pilha em formato String.
      * @return {string}
      */
-    toString(){
-        let  texto = "";
-        for(let i = 0; i <= this.topo; i++){
-            texto+=texto;
+    toString() {
+        let texto = "";
+        for (let i = 0; i < this.topo; i++) {
+            texto += this.dados[i] + " ";
         }
-        return texto;
+        return texto.trim();
     }
 
     /**
