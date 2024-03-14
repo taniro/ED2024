@@ -11,8 +11,8 @@ class ListaDuplamenteEncadeada {
      * @constructor
      */
     constructor() {
-        this.head = null;
-        this.tail = null;
+        this.head = null; // Referência para o primeiro nó da lista
+        this.tail = null; // Referência para o último nó da lista
     }
 
     /**
@@ -22,12 +22,14 @@ class ListaDuplamenteEncadeada {
     add(dado) {
         let novo_no = new NoDuplo(dado);
 
+        // Se a lista estiver vazia, o novo nó se torna tanto a cabeça quanto a cauda da lista
         if (this.isEmpty()) {
             this.head = novo_no;
             this.tail = novo_no;
             return;
         }
 
+        // Caso contrário, o novo nó é adicionado como a nova cabeça da lista
         novo_no.prox = this.head;
         novo_no.ant = null;
         this.head.ant = novo_no;
@@ -41,12 +43,14 @@ class ListaDuplamenteEncadeada {
     append(dado) {
         let novo_no = new NoDuplo(dado);
 
+        // Se a lista estiver vazia, o novo nó se torna tanto a cabeça quanto a cauda da lista
         if (this.isEmpty()) {
             this.head = novo_no;
             this.tail = novo_no;
             return;
         }
 
+        // Caso contrário, o novo nó é adicionado como o novo último nó da lista
         novo_no.ant = this.tail;
         novo_no.prox = null;
 
