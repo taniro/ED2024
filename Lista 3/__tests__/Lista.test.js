@@ -1,4 +1,4 @@
-import Lista from "../src/Lista";
+import Lista from "../structures/Lista";
 
 let l;
 
@@ -19,7 +19,7 @@ test("Adicionar elementos",
         l.add("A");
         expect(l.isEmpty()).toBe(false);
         expect(l.length()).toBe(1);
-        l.remove();
+        l.removeFirst();
         expect(l.isEmpty()).toBe(true);
         expect(l.length()).toBe(0);
     }
@@ -27,7 +27,7 @@ test("Adicionar elementos",
 
 test("Remover elementos da lista Vazia",
     () => {
-        expect(() => l.remove()).toThrow(Error("Underflow"));
+        expect(() => l.removeFirst()).toThrow(Error("Underflow"));
         expect(() => l.removeLast()).toThrow(Error("Underflow"));
 
     }
@@ -43,7 +43,7 @@ test("Testes Diversos",
         l.append(50);
         expect(l.length()).toBe(4);
         expect(l.asArray()).toStrictEqual([40, 30, 20, 50]);
-        l.remove();
+        l.removeFirst();
         l.removeLast();
         expect(l.asArray()).toStrictEqual([30, 20]);
         expect(l.length()).toBe(2);
@@ -63,7 +63,6 @@ test("Buscar dado na lista",
         l.add("B");
         l.add("C");
         l.add("D");
-        expect(l.search("C")).toBe(true);
-        expect(l.search("F")).toBe(false);
-
-    })
+        expect(l.search("C")).toBe(2);
+        expect(l.search("F")).toBe(-1);
+})

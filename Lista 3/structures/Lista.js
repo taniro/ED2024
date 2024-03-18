@@ -15,36 +15,38 @@ class Lista {
 
     add(dado) {
         let novo_no = new No(dado);
-        if (this.head.proximo === null) {
-            this.head.proximo = novo_no;
-        } else {
-            let atual = this.head;
-            while(atual.proximo !== null){
-                atual = atual.proximo;
-            }
-            atual.proximo = novo_no;
-        }
+
+        novo_no.proximo = this.head.proximo;
+        this.head.proximo = novo_no;
         this.size++;
-        }
+    }
 
     addAt(dado, posicao) {
-        if (posicao <= this.length() && posicao >= 0) {
-            let novo_no = new No(dado);
-            if (posicao === 0) {
-                this.add();
-            } else {
-                let atual = this.head;
-                for (let i = 0; i < posicao - 1; i++) {
-                    atual = atual.next;
-                }
-                novo_no.proximo = atual.proximo;
-                atual.proximo = novo_no;
-                this.size++;
-            }
-        } else {
+        // Verifica se a posição é válida
+        if (posicao < 0 || posicao > this.length()) {
             throw new Error("Posição inválida");
         }
+    
+        // Cria um novo nó com o dado fornecido
+        let novo_no = new No(dado);
+    
+        // Se a posição for 0, adiciona o novo nó no início da lista
+        if (posicao === 0) {
+            this.add(dado);
+        } else {
+            let atual = this.head;
+            // Percorre a lista até o nó anterior à posição desejada
+            for (let i = 0; i < posicao - 1; i++) {
+                atual = atual.proximo;
+            }
+            // Insere o novo nó após o nó atual
+            novo_no.proximo = atual.proximo;
+            atual.proximo = novo_no;
+        }
+        // Incrementa o tamanho da lista
+        this.size++;
     }
+    
              
     append(dado) {
         let novo_no = new No(dado);
@@ -69,13 +71,11 @@ class Lista {
 
     removeLast() {
         if (!this.isEmpty()) {
-            let node_a = this.head;
-            let node_b = node_a;
-            while (node_a.proximo !== null) {
-                node_b = node_a;
-                node_a = node_a.proximo;
+            let atual= this.head;
+            while (atual.proximo.proximo !== null) {
+                atual = atual.proximo;
             }
-            node_b.proximo = null;
+            atual.proximo = null;
             this.size--;
             return;
         }
@@ -83,8 +83,31 @@ class Lista {
     }
 
     
-    removeAt(pos) { }
-
+    removeAt(pos) {
+        // Verifica se a posição é válida
+        if (pos < 0 || pos >= this.length()) {
+            throw new Error("Posição inválida");
+        }
+    
+        // Se a posição for 0, remove o primeiro nó
+        if (pos === 0) {
+            this.removeFirst();
+        } else {
+            let atual = this.head;
+            let anterior = null;
+            for (let i = 0; i < pos; i++) {
+                anterior = atual;
+                atual = atual.proximo;
+            }
+    
+            // Remove o nó na posição especificada atualizando os ponteiros
+            anterior.proximo = atual.proximo;
+        }
+    
+        // Reduz o tamanho da lista
+        this.size--;
+    }
+    
     search(dado) { 
         if(!this.isEmpty()){
             let no_atual = this.head;
@@ -102,21 +125,28 @@ class Lista {
     }
 
     searchForPos(pos) {
-        let i = 0;
-        let aux = this.head;
-    
-        while (aux !== null) {
-            if (i === pos) {
-                return aux;
-            }
-            aux = aux.proximo;
-            i++;
+        // Verifica se a lista está vazia
+        if (this.isEmpty()) {
+            throw new Error("Underflow");
         }
     
-        return null; // Se a posição não for encontrada, retorna null
+        // Verifica se a posição é válida
+        if (pos < 1 || pos > this.length()) {
+            throw new Error("Posição inválida");
+        }
+    
+        // Percorre a lista até a posição desejada
+        let i = 0;
+        let atual = this.head;
+        while (atual !== null) {
+            if (i === pos) {
+                return atual;
+            }
+            atual = atual.proximo;
+            i++;
+        }
     }
     
-
     asArray() {
         let resultado = [];
         let aux = this.head.proximo;
@@ -150,6 +180,16 @@ class Lista {
 
         return string;
     }
+
+    display() {
+        let atual = this.head;
+        while (atual !== null) {
+            console.log(atual.dado + " -> ");
+            atual = atual.proximo;
+        }
+        console.log("null");
+    }
+    
 }
 
 export default Lista;

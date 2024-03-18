@@ -55,29 +55,6 @@ class Lista {
         }
         throw new Error("Underflow");
     }
-<<<<<<< HEAD
-
-    addAt(pos) {
-
-    }
-    removeAt(pos) { }
-
-    search(dado) { 
-        if(!this.isEmpty()){
-            let no_atual = this.head;
-            let pos = 0;
-
-            while (no_atual.proximo !== null) {
-                if(no_atual.dado === dado){
-                    return pos;
-                }
-                pos++;
-                no_atual = no_atual.proximo;
-            }
-        }
-        return -1; //dado não encontrado
-    }
-=======
     
     addAt(dado, pos){ //Lista começa na posição 1(Ignora a head)
         if(pos <= this.length() && pos>= 1){
@@ -99,7 +76,6 @@ class Lista {
         }
     }
 
-
     removeAt(pos){
         if(!this.isEmpty()){
             if(pos <= this.length() && pos>= 1){
@@ -120,13 +96,6 @@ class Lista {
         }else{
             throw new Error("Underflow");
         }
-    }
-
-    length() {
-        return this.size;
-    }
-    isEmpty() {
-        return this.head.proximo === null;
     }
 
     search(dado){
@@ -163,7 +132,6 @@ class Lista {
             throw new Error("ListEmpty");
         }
     }
->>>>>>> upstream/main
     
     asArray() {
         let resultado = [];
@@ -174,6 +142,7 @@ class Lista {
         }
         return resultado;
     }
+
     clear(){
         let aux;
         let no_atual = new No();
