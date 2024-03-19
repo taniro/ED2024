@@ -67,5 +67,4 @@ test("Buscar dado na lista",
         l.add("D");
         expect(l.search("C")).toBe(true);
         expect(l.search("F")).toBe(false);
-
-    })
+})
