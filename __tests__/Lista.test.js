@@ -49,3 +49,22 @@ test("Testes Diversos",
         expect(l.length()).toBe(2);
     }
 );
+
+test("Limpar lista",
+    () => {
+        l.add(30);
+        l.add(40);
+        l.clear();
+        expect(l.isEmpty()).toBe(true);
+    }
+);
+
+test("Buscar dado na lista", 
+    () => {
+        l.add("A");
+        l.add("B");
+        l.add("C");
+        l.add("D");
+        expect(l.search("C")).toBe(true);
+        expect(l.search("F")).toBe(false);
+})
