@@ -37,7 +37,7 @@ class FilaPrioridade {
 			pos_pai = Math.trunc(pos_filho / 2);
 		}
 
-		//this.tree[pos_filho] = node;
+		this.tree[pos_filho] = node;
 	}
 
 	/*
