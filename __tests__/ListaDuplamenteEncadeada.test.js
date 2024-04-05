@@ -19,7 +19,7 @@ test("Adicionar elementos",
         l.add("A");
         expect(l.isEmpty()).toBe(false);
         expect(l.length()).toBe(1);
-        l.remove();
+        l.remove("A");
         expect(l.isEmpty()).toBe(true);
         expect(l.length()).toBe(0);
     }
@@ -43,7 +43,7 @@ test("Testes Diversos",
         l.append(50);
         expect(l.length()).toBe(4);
         expect(l.asArray()).toStrictEqual([40, 30, 20, 50]);
-        l.remove();
+        l.remove(40);
         l.removeLast();
         expect(l.asArray()).toStrictEqual([30, 20]);
         expect(l.length()).toBe(2);
