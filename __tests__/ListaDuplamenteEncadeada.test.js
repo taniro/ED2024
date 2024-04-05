@@ -19,7 +19,7 @@ test("Adicionar elementos",
         l.add("A");
         expect(l.isEmpty()).toBe(false);
         expect(l.length()).toBe(1);
-        l.remove();
+        l.remove("A");
         expect(l.isEmpty()).toBe(true);
         expect(l.length()).toBe(0);
     }
