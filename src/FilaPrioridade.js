@@ -13,7 +13,6 @@ class FilaPrioridade {
 		this.tree[0] = new Node(0, 99999999);
 	}
 
-
 	/*
 	Incremente o valor de size;
 	Dados[size] recebe o valor inserido;
@@ -71,8 +70,29 @@ class FilaPrioridade {
 		return elemento_maior_prioridade;
 	}
 
+	/**
+	 * Caminha pelo Array Tree
+	 * Incrementa a variável convert com os dados de cadad index
+	 * Retorna convert
+	 */
 	asArray() {
+		if(this.isEmpty()) return ''
+
+        let convert = ''
+        for(let index in this.tree){
+            if(index != 0) convert += this.tree[index].priority
+        }
+        return convert
 	}
+
+	lastInput(){
+        if(this.isEmpty())throw new Error("Queue UnderFlow")
+        return this.tree[this.size].priority
+    }
+
+	isEmpty(){
+        return this.size === 0
+    }
 }
 
 export default FilaPrioridade;

@@ -42,6 +42,7 @@ class ListaDuplamenteLigada {
             novo_no.proximo = null;
         } else {
             novo_no.proximo = this.head;
+
             novo_no.anterior = null;
             this.head.anterior = novo_no;
             this.head = novo_no;
@@ -82,6 +83,9 @@ class ListaDuplamenteLigada {
                 this.head.anterior = null;
             }
         }
+        else {
+            throw new Error("Underflow"); // Lança um erro se a lista estiver vazia
+        }
     }
 
     /**
@@ -113,6 +117,8 @@ class ListaDuplamenteLigada {
                     next = next.proximo;
                 }
             }
+        } else {
+            throw new Error("Underflow"); 
         }
 
         return false;
@@ -131,6 +137,9 @@ class ListaDuplamenteLigada {
                 this.tail = this.tail.anterior;
                 this.tail.proximo = null;
             }
+        }
+        else {
+            throw new Error("Underflow"); 
         }
     }
 
