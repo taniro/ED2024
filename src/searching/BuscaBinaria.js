@@ -14,7 +14,7 @@ function buscaBinaria(chave, v) {
 			direita = meio;
 		}
 	}
-	return v[direita];
+	return v[direita] === chave ? v[direita] : -1;
 }
 
 function buscaBinariaRecursivo(chave, esquerda, direita, v) {
