@@ -18,7 +18,7 @@ function quicksort(vetor, inferior, superior) {
 
 		pivo_pos = i + 1;
 		quicksort(vetor, inferior, pivo_pos - 1);
-		quicksort(vetor, pivo_pos + 1, superior - 1);
+		quicksort(vetor, pivo_pos + 1, superior);
 		return vetor;
 	}
 }
